@@ -1,5 +1,6 @@
 const {db}=require('./mysql.js')
 const {User}=require('../models/user.js')
+const {Parking}=require('../models/parking')
 const mysqlConnect=({alter})=>{
     db.authenticate()
         .then(()=>console.log('db sql ok'))

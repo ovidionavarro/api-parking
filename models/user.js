@@ -11,7 +11,8 @@ const User=db.define(
         },
         name:{
             type:DataTypes.STRING(50),
-            allowNull:false
+            allowNull:false,
+            unique:true
         },
         email:{
             type:DataTypes.STRING(),
@@ -28,6 +29,10 @@ const User=db.define(
         role:{
             type:DataTypes.ENUM('ADMIN','CLIENT','EMPLOY'),
             allowNull:false
+        },
+        status:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:true
         }
     },
     {timestamps:false}

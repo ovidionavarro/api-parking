@@ -10,9 +10,18 @@ const Parking=db.define(
             allowNull:false,
             primaryKey:true
         },
+        description:{
+            type:DataTypes.STRING
+        },
         status:{
-           type:DataTypes.BOOLEAN,
-           allowNull:false 
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
+            defaultValue:false
         }
         
-    })
+    },
+    {timestamps:false}
+)
+module.exports={
+    Parking
+}

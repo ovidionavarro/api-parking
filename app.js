@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express =require('express')
 const cors =require('cors')
-const {v4:uuidv4}=require('uuid')
 
 
 const { mysqlConnect } = require('./db/init_mysql')
@@ -18,11 +17,11 @@ mongoConnect()
 app.use(cors())
 app.use(express.json());
 
-//test
-app.get('/',(req,res)=>{
-    res.send('hi')
-})
-console.log(typeof(uuidv4()))
+//routes
+app.use('/user',require('./routes/user-routes.js'))
+app.use('/parking',require('./routes/parking-routes'))
+
+
 
 //listen
 app.listen(port,console.log(`server running on ${port} `))
