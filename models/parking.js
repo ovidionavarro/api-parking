@@ -12,11 +12,6 @@ const Parking=db.define(
         },
         description:{
             type:DataTypes.STRING
-        },
-        status:{
-            type:DataTypes.BOOLEAN,
-            allowNull:false,
-            defaultValue:false
         }
         
     },
