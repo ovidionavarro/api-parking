@@ -136,10 +136,75 @@ const reserveDelete=async(req=request,res=response)=>{
         ret
     })
 }
+const reserveUpdate=async(req=request,res=response)=>{
+    const {id_parking,time_init,time_end}=req.body
+    const {registration_num}=req.query
+    const reserved=await Reserve.findOne({where:{
+        id_parking,
+        time_init,
+        time_end
+    }})
+    if(!reserved){
+        return res.status(400).json({
+            msg:'bad request'
+        })
+    }  
+    const aux1= await Reserve.findAll({where:{
+        time_init:{
+            [Op.gte]:time_init
+        },
+        time_end:{
+            [Op.lte]:time_end
+        }
+    }})
+    const aux2=await Reserve.findAll({where:{
+        [Op.or]:[
+            {
+                time_init:{
+                    [Op.lte]:time_init,
+                },
+                time_end:{
+                    [Op.gte]:time_init,
+                }
+            },
+            {
+                time_init:{
+                    [Op.lte]:time_end,
+                },
+                time_end:{
+                    [Op.gte]:time_end,
+                }
+            }
+        ]  
+    }})
+    const aux=[...aux1,...aux2]
+
+    //verificar si existe el mismo carro reservado para esa hora
+    let car_reserved=false
+    aux.forEach(element => {
+        if(element.dataValues['registration_num']==registration_num){
+            car_reserved=true
+        }
+    })
+    if(car_reserved){
+        return res.json({
+            msg:'vehicle is already reserved'
+        })
+    }
+    
+    const ret =await Reserve.update({registration_num},{where:{id_parking,time_init,time_end}})
+    return res.json(ret)
+
+}
+
+
+
+
 
 
 module.exports={
     reserveGet,
     reservePost,
-    reserveDelete
+    reserveDelete,
+    reserveUpdate
 }

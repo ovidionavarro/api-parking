@@ -1,5 +1,5 @@
 const {Router}= require('express')
-const { reserveGet, reservePost, reserveDelete } = require('../controller/reserve.controller')
+const { reserveGet, reservePost, reserveDelete, reserveUpdate } = require('../controller/reserve.controller')
 const {check}=require('express-validator')
 const { validateFields } = require('../middlewares/validate-fields')
 
@@ -19,5 +19,12 @@ router.delete('/',[
     check('time_end','Invalid time_end').isISO8601(),
     validateFields
 ],reserveDelete)
+router.put('/',[
+    check('id_parking','invalid_parking').isInt(),
+    check('time_init','Invalid time_init').isISO8601(),
+    check('time_end','Invalid time_end').isISO8601(),
+    check('registration_num','Invalid registration num').isString().isLength({max:8}),
+    validateFields
+],reserveUpdate)
 
 module.exports=router
