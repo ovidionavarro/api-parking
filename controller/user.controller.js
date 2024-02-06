@@ -47,14 +47,17 @@ const userDelete=async(req=request,res=response)=>{
 const userUpdate=async(req=request,res=response)=>{
     const {id}=req.params
     const user=await User.findByPk(id)
-    console.log(user)
+    console.log(user.dataValues)
     if(!user){
         return res.json({
             msg:'bad request'
         })
     }
-    const body=req.body
-    const result=await User.update(body,{where:{id}})
+    const {name,phone,role}=req.body
+
+
+
+    const result=await User.update({name,phone,role},{where:{id}})
     res.json({
         result
     })

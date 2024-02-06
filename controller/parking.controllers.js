@@ -43,11 +43,43 @@ const parkingPost=async(req=request,res=response)=>{
     })
 
 }
+const parkingPut=async(req=request,res=response)=>{
+    const {id}=req.params
+    const parking=await Parking.findByPk(id)
+    console.log(parking.dataValues)
+    if(!parking){
+        return res.json({
+            msg:'bad request'
+        })
+    }
+    const {description}=req.body
+    const result=await Parking.update({description},{where:{id}})
+    res.json({
+        result
+    })
+
+}
+const parkingDelete=async(req=request,res=response)=>{
+    const{id}=req.params
+    const idInReserved=await Reserve.findAll({where:{id_parking:id}})
+    const length=idInReserved.length
+    if(length==0){
+        const elem=await Parking.destroy({where:{id}})
+        return res.json({
+            elem
+        })
+    }
+    return res.json({
+        idInReserved
+    })
+}
 
 
 module.exports={
     parkingGet,
-    parkingPost
+    parkingPost,
+    parkingPut,
+    parkingDelete
     
 }
 

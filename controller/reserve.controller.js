@@ -21,6 +21,15 @@ const reservePost=async(req=request,res=response)=>{
             msg:'incorrect date'
         })
     }
+    //owner exsita
+    const owner_car=await User.findByPk(owner)
+    if(owner_car===null ||!owner_car.dataValues.status){
+        return res.json({
+            msg:'invalid owner'
+        })
+    }
+
+
 
     const problemKeys=await Reserve.findOne({where:
         {time_init,time_end,registration_num}
@@ -114,7 +123,23 @@ const reservePost=async(req=request,res=response)=>{
     }
 }
 
+const reserveDelete=async(req=request,res=response)=>{
+    const {id_parking,time_init,time_end}=req.query
+    const parking=await Parking.findByPk(id_parking)
+    if(!parking){
+        return res.json({
+            msg:'invalid id_parking'
+        })
+    }
+    const ret=await Reserve.destroy({where:{id_parking,time_init,time_end}})
+    return res.json({
+        ret
+    })
+}
+
+
 module.exports={
     reserveGet,
-    reservePost
+    reservePost,
+    reserveDelete
 }

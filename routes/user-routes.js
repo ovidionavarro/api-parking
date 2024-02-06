@@ -17,7 +17,12 @@ router.post('/',[
 
 router.delete('/:id',userDelete)
 
-router.put('/:id',userUpdate)
+router.put('/:id',[
+    check('name','Name is not null').isString().notEmpty(),
+    check('phone','phone error').isNumeric().isLength({min:8}),
+    check('role','this role is not valid').isIn(['ADMIN','CLIENT','EMPLOY']),
+    validateFields
+],userUpdate)
 
 
 module.exports=router
