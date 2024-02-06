@@ -1,6 +1,7 @@
 const {response,request}= require('express')
 const { Reserve } = require('../models/reserve')
 const {Parking}=require('../models/parking')
+const { User } = require('../models/user')
 const Sequelize=require('sequelize')
 const Op=Sequelize.Op
 
@@ -20,6 +21,7 @@ const reservePost=async(req=request,res=response)=>{
             msg:'incorrect date'
         })
     }
+
     const problemKeys=await Reserve.findOne({where:
         {time_init,time_end,registration_num}
     })
@@ -107,7 +109,8 @@ const reservePost=async(req=request,res=response)=>{
         ret
     })
     } catch (error) {
-      res.json({error})  
+        console.log('error')
+      res.json(error)  
     }
 }
 

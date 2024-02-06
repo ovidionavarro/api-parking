@@ -30,6 +30,11 @@ const parkingGet= async(req=request,res=response)=>{
 }
 const parkingPost=async(req=request,res=response)=>{
     const {description}=req.body
+    if(description===""){
+        return res.json({
+            msg:"non-empty description "
+        })
+    }
     
     const parking= new Parking({description})
     await parking.save()
@@ -38,9 +43,6 @@ const parkingPost=async(req=request,res=response)=>{
     })
 
 }
-
-
-
 
 
 module.exports={

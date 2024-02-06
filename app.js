@@ -5,8 +5,6 @@ const cors =require('cors')
 
 const { mysqlConnect } = require('./db/init_mysql')
 const { mongoConnect } = require('./db/mongo')
-const { date } = require('./utils.js')
-const { DATE } = require('sequelize')
 
 const app=express()
 const port=process.env.PORT
@@ -23,12 +21,12 @@ app.use(express.json());
 app.use('/user',require('./routes/user-routes.js'))
 app.use('/parking',require('./routes/parking-routes'))
 app.use('/reserve',require('./routes/reserver-routes.js'))
-const ora=new Date()
-console.log(ora)
+
 
 //listen
 app.listen(port,console.log(`server running on ${port} `))
-
+console.log('quitarle unique a name_user')
+console.log("verificar si existe owner en reserved")
 //realizar curd de reservar y de parking 
 //validar rutas
 //login con jwt

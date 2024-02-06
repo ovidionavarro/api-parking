@@ -12,6 +12,14 @@ const userGet= async(req=request,res=response)=>{
 }
 const userPost=async(req=request,res=response)=>{
     const {name,email,password,phone,role}=req.body
+    const eq_email=await User.findOne({where:{email}})
+    if(eq_email){
+        return res.json({
+            msg:'this email already exist'
+        })
+    }
+   
+   
     const salt=bcryptjs.genSaltSync()
     const password_hash=bcryptjs.hashSync(password,salt)
     const user_create= new User({id:uuidv4(),name,email,password_hash,phone,role,status:true})
