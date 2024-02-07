@@ -60,7 +60,6 @@ const parkingPut=async(req=request,res=response)=>{
     try {
         const {id}=req.params
         const parking=await Parking.findByPk(id)
-        console.log(parking.dataValues)
         if(!parking){
             return res.status(400).json({
                 msg:'bad request'
@@ -68,8 +67,10 @@ const parkingPut=async(req=request,res=response)=>{
         }
         const {description}=req.body
         const result=await Parking.update({description},{where:{id}})
+        const[ok]=result
+        const ret=!!ok
         res.json({
-            result
+            ret
         })
     } catch (error) {
         return res.status(500).json({
@@ -85,8 +86,9 @@ const parkingDelete=async(req=request,res=response)=>{
         const length=idInReserved.length
         if(length==0){
             const elem=await Parking.destroy({where:{id}})
+            const ret=elem!==0
             return res.json({
-                elem
+                ret
             })
         }
         return res.json({

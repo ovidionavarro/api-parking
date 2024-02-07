@@ -139,7 +139,8 @@ const reserveDelete=async(req=request,res=response)=>{
                 msg:'invalid id_parking'
             })
         }
-        const ret=await Reserve.destroy({where:{id_parking,time_init,time_end}})
+        const result=await Reserve.destroy({where:{id_parking,time_init,time_end}})
+        const ret=result!==0
         return res.json({
             ret
         })
@@ -206,7 +207,9 @@ const reserveUpdate=async(req=request,res=response)=>{
             })
         }
         
-        const ret =await Reserve.update({registration_num},{where:{id_parking,time_init,time_end}})
+        const result =await Reserve.update({registration_num},{where:{id_parking,time_init,time_end}})
+        const [ok]=result
+        const ret=!!ok
         return res.json(ret)
 
     } catch (error) {

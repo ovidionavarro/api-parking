@@ -80,8 +80,10 @@ const userUpdate=async(req=request,res=response)=>{
 
 
         const result=await User.update({name,phone,role},{where:{id}})
+        const [ok]=result
+        const ret=!!ok
         res.json({
-            result
+            ret
         })
     } catch (error) {
         return res.status(500).json({
