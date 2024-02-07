@@ -28,7 +28,7 @@ const parkingGet= async(req=request,res=response)=>{
             status_parking_now
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
           })
     }
@@ -38,7 +38,7 @@ const parkingPost=async(req=request,res=response)=>{
     try {
         const {description}=req.body
         if(description===""){
-            return res.json({
+            return res.status(400).json({
                 msg:"non-empty description "
             })
         }
@@ -51,7 +51,7 @@ const parkingPost=async(req=request,res=response)=>{
 
         
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -62,7 +62,7 @@ const parkingPut=async(req=request,res=response)=>{
         const parking=await Parking.findByPk(id)
         console.log(parking.dataValues)
         if(!parking){
-            return res.json({
+            return res.status(400).json({
                 msg:'bad request'
             })
         }
@@ -72,7 +72,7 @@ const parkingPut=async(req=request,res=response)=>{
             result
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -90,10 +90,10 @@ const parkingDelete=async(req=request,res=response)=>{
             })
         }
         return res.json({
-            idInReserved
+            msg:'parking reserved'
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }

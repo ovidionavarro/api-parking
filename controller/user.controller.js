@@ -11,7 +11,7 @@ const userGet= async(req=request,res=response)=>{
             users
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
         
@@ -22,7 +22,7 @@ const userPost=async(req=request,res=response)=>{
         const {name,email,password,phone,role}=req.body
         const eq_email=await User.findOne({where:{email}})
         if(eq_email){
-            return res.json({
+            return res.status(400).json({
                 msg:'this email already exist'
             })
         }
@@ -36,7 +36,7 @@ const userPost=async(req=request,res=response)=>{
             user_create
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
         
@@ -49,8 +49,8 @@ const userDelete=async(req=request,res=response)=>{
         const user=await User.findByPk(id)
         
         if(!user){
-            return res.json({
-                msg:'bad request'
+            return res.status(404).json({
+                msg:'user  not found '
             })
         }
 
@@ -61,7 +61,7 @@ const userDelete=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -71,8 +71,8 @@ const userUpdate=async(req=request,res=response)=>{
         const {id}=req.params
         const user=await User.findByPk(id)
         if(!user){
-            return res.json({
-                msg:'bad request'
+            return res.status(404).json({
+                msg:'user not found'
             })
         }
         const {name,phone,role}=req.body
@@ -84,7 +84,7 @@ const userUpdate=async(req=request,res=response)=>{
             result
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }

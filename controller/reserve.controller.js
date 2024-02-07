@@ -13,7 +13,7 @@ const reserveGet= async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -23,14 +23,14 @@ const reservePost=async(req=request,res=response)=>{
         const {time_init,time_end,owner,registration_num}=req.body
         //fecha de inicio mayor que finalizacion
         if(time_end<=time_init){
-            return res.json({
+            return res.status(400).json({
                 msg:'incorrect date'
             })
         }
         //owner exsita
         const owner_car=await User.findByPk(owner)
         if(owner_car===null ||!owner_car.dataValues.status){
-            return res.json({
+            return res.status(404).json({
                 msg:'invalid owner'
             })
         }
@@ -41,7 +41,7 @@ const reservePost=async(req=request,res=response)=>{
             {time_init,time_end,registration_num}
         })
         if(problemKeys){
-            return res.json({
+            return res.status(400).json({
                 msg:'duplicate key'
             })
         }
@@ -86,7 +86,7 @@ const reservePost=async(req=request,res=response)=>{
             }
         })
         if(reserved){
-            return res.json({
+            return res.status(400).json({
                 msg:'vehicle is already reserved'
             })
         }
@@ -111,7 +111,7 @@ const reservePost=async(req=request,res=response)=>{
 
         console.log('id_parking',id_parking)
         if(id_parking==-1){
-            return res.json({
+            return res.status(400).json({
                 msg:"No parking available at that time"
             })
         }
@@ -124,7 +124,7 @@ const reservePost=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -135,7 +135,7 @@ const reserveDelete=async(req=request,res=response)=>{
         const {id_parking,time_init,time_end}=req.query
         const parking=await Parking.findByPk(id_parking)
         if(!parking){
-            return res.json({
+            return res.status(404).json({
                 msg:'invalid id_parking'
             })
         }
@@ -144,7 +144,7 @@ const reserveDelete=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
     }
@@ -201,7 +201,7 @@ const reserveUpdate=async(req=request,res=response)=>{
             }
         })
         if(car_reserved){
-            return res.json({
+            return res.status(404).json({
                 msg:'vehicle is already reserved'
             })
         }
@@ -210,7 +210,7 @@ const reserveUpdate=async(req=request,res=response)=>{
         return res.json(ret)
 
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             error
         })
         
