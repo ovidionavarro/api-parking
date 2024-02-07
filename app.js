@@ -21,7 +21,7 @@ app.use(express.json());
 app.use('/user',require('./routes/user-routes.js'))
 app.use('/parking',require('./routes/parking-routes'))
 app.use('/reserve',require('./routes/reserver-routes.js'))
-
+app.use('/auth',require('./routes/auth-routes.js'))
 
 //listen
 app.listen(port,console.log(`server running on ${port} `))
