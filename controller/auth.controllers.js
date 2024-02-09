@@ -3,7 +3,7 @@ const bcryptjs=require('bcryptjs');
 
 const { User } = require('../models/user');
 const { generateJWT } = require('../utils/generate-jwt');
-const logger = require('../utils/logger');
+const Logs = require('../models/logs');
 
 
 const login=async(req,res=response)=>{
@@ -36,8 +36,8 @@ const login=async(req,res=response)=>{
             token
         })
     } catch (error) {
-        logger.error(error)
-
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"logs",request:"get"})
+        await err.save()
         return res.status(500).json({
             msg:'internal error'
         })

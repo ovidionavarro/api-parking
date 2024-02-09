@@ -1,9 +1,8 @@
 const {response,request}= require('express')
 const bcryptjs=require('bcryptjs');
 const {v4: uuidv4}=require('uuid')
-
 const {User}=require('../models/user')
-const logger = require('../utils/logger');
+const Logs = require('../models/logs');
 
 
 
@@ -14,7 +13,8 @@ const userGet= async(req=request,res=response)=>{
             users
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"users",request:"get"})
+        await err.save()
         return res.status(500).json({
             error
         })
@@ -40,7 +40,8 @@ const userPost=async(req=request,res=response)=>{
             user_create
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"user",request:"post"})
+        await err.save()
         return res.status(500).json({
             error
         })
@@ -66,7 +67,8 @@ const userDelete=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"user",request:"delete"})
+        await err.save()
         return res.status(500).json({
             error
         })
@@ -92,7 +94,8 @@ const userUpdate=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"user",request:"update"})
+        await err.save()
         return res.status(500).json({
             error
         })

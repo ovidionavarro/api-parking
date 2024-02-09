@@ -4,7 +4,8 @@ const Op=Sequelize.Op
 
 const {Parking}=require('../models/parking')
 const { Reserve } = require('../models/reserve')
-const logger = require('../utils/logger')
+const Logs = require('../models/logs');
+
 
 const parkingGet= async(req=request,res=response)=>{
     try {
@@ -30,7 +31,8 @@ const parkingGet= async(req=request,res=response)=>{
             status_parking_now
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"parking",request:"get"})
+        await err.save()
         return res.status(500).json({
             error
           })
@@ -54,7 +56,8 @@ const parkingPost=async(req=request,res=response)=>{
 
         
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"parking",request:"post"})
+        await err.save()
         return res.status(500).json({
             error
         })
@@ -77,7 +80,8 @@ const parkingPut=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"parking",request:"update"})
+        await err.save()
         return res.status(500).json({
             error
         })
@@ -100,7 +104,8 @@ const parkingDelete=async(req=request,res=response)=>{
             msg:'parking reserved'
         })
     } catch (error) {
-        logger.error(error)
+        const err= new Logs({level:"error",log:error,date:new Date(),route:"parking",request:"delete"})
+        await err.save()
         return res.status(500).json({
             error
         })
