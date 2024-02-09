@@ -1,6 +1,7 @@
 const {Router}= require('express')
-const { reserveGet, reservePost, reserveDelete, reserveUpdate } = require('../controller/reserve.controller')
 const {check}=require('express-validator')
+
+const { reserveGet, reservePost, reserveDelete, reserveUpdate } = require('../controller/reserve.controller')
 const { validateFields } = require('../middlewares/validate-fields')
 const { validateJWT } = require('../middlewares/validate-jwt')
 const { haveRole } = require('../middlewares/validate-roles')

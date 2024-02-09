@@ -2,16 +2,18 @@ require('dotenv').config()
 const express =require('express')
 const cors =require('cors')
 
-
 const { mysqlConnect } = require('./db/init_mysql')
-const { mongoConnect } = require('./db/mongo')
+const{dbMongo } = require('./db/mongo')
 
 const app=express()
 const port=process.env.PORT
 
 //databases
+
+
 mysqlConnect({alter:false})
-mongoConnect()
+dbMongo()
+
 
 //middlewares
 app.use(cors())
@@ -25,8 +27,3 @@ app.use('/auth',require('./routes/auth-routes.js'))
 
 //listen
 app.listen(port,console.log(`server running on ${port} `))
-console.log('quitarle unique a name_user')
-console.log("verificar si existe owner en reserved")
-//realizar curd de reservar y de parking 
-//validar rutas
-//login con jwt

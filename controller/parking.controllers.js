@@ -1,8 +1,10 @@
 const {response,request}= require('express')
-const {Parking}=require('../models/parking')
-const { Reserve } = require('../models/reserve')
 const Sequelize=require('sequelize')
 const Op=Sequelize.Op
+
+const {Parking}=require('../models/parking')
+const { Reserve } = require('../models/reserve')
+const logger = require('../utils/logger')
 
 const parkingGet= async(req=request,res=response)=>{
     try {
@@ -28,6 +30,7 @@ const parkingGet= async(req=request,res=response)=>{
             status_parking_now
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
           })
@@ -51,6 +54,7 @@ const parkingPost=async(req=request,res=response)=>{
 
         
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -73,6 +77,7 @@ const parkingPut=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -95,6 +100,7 @@ const parkingDelete=async(req=request,res=response)=>{
             msg:'parking reserved'
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })

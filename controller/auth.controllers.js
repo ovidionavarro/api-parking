@@ -1,7 +1,9 @@
 const {response,request}= require('express')
 const bcryptjs=require('bcryptjs');
+
 const { User } = require('../models/user');
 const { generateJWT } = require('../utils/generate-jwt');
+const logger = require('../utils/logger');
 
 
 const login=async(req,res=response)=>{
@@ -34,7 +36,8 @@ const login=async(req,res=response)=>{
             token
         })
     } catch (error) {
-        console.log(error)
+        logger.error(error)
+
         return res.status(500).json({
             msg:'internal error'
         })

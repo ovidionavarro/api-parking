@@ -1,7 +1,10 @@
 const {response,request}= require('express')
-const {v4: uuidv4}=require('uuid')
-const {User}=require('../models/user')
 const bcryptjs=require('bcryptjs');
+const {v4: uuidv4}=require('uuid')
+
+const {User}=require('../models/user')
+const logger = require('../utils/logger');
+
 
 
 const userGet= async(req=request,res=response)=>{
@@ -11,6 +14,7 @@ const userGet= async(req=request,res=response)=>{
             users
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -36,6 +40,7 @@ const userPost=async(req=request,res=response)=>{
             user_create
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -61,6 +66,7 @@ const userDelete=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -86,6 +92,7 @@ const userUpdate=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })

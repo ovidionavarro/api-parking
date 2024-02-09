@@ -1,6 +1,7 @@
 const { response, request } = require('express')
 const jwt= require('jsonwebtoken')
 const {User}=require('../models/user')
+const logger = require('../utils/logger')
 
 const validateJWT=async(req=request,res=response,next)=>{
     const token = req.header('x-token')
@@ -30,7 +31,7 @@ const validateJWT=async(req=request,res=response,next)=>{
         //verificar su user de id tiene estado en true 
         next()
     } catch (error) {
-        console.log(error)
+        logger.error(error)
         return res.status(401).json({
             msg:"Invalid Token"
         })

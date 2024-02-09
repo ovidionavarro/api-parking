@@ -1,9 +1,10 @@
 const {response,request}= require('express')
+const Sequelize=require('sequelize')
+const Op=Sequelize.Op
 const { Reserve } = require('../models/reserve')
 const {Parking}=require('../models/parking')
 const { User } = require('../models/user')
-const Sequelize=require('sequelize')
-const Op=Sequelize.Op
+const logger = require('../utils/logger');
 
 
 const reserveGet= async(req=request,res=response)=>{
@@ -13,6 +14,7 @@ const reserveGet= async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -123,7 +125,8 @@ const reservePost=async(req=request,res=response)=>{
         return res.status(201).json({
             ret
         })
-    } catch (error) {
+    }catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -145,6 +148,7 @@ const reserveDelete=async(req=request,res=response)=>{
             ret
         })
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
@@ -213,6 +217,7 @@ const reserveUpdate=async(req=request,res=response)=>{
         return res.json(ret)
 
     } catch (error) {
+        logger.error(error)
         return res.status(500).json({
             error
         })
