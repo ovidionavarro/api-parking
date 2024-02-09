@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "4af2e19f-05c5-4545-9c92-de5ea5769142",
+		"name": "parking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/parking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MzE3MTU5LCJleHAiOjE3MDczMzE1NTl9.M09IUrRLXnHLTcIRpvy99I3Pu8Qxw2ZYK3sQlBAKB1Y",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"adas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parking?x-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MzE3MTU5LCJleHAiOjE3MDczMzE1NTl9.M09IUrRLXnHLTcIRpvy99I3Pu8Qxw2ZYK3sQlBAKB1Y",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MzE3MTU5LCJleHAiOjE3MDczMzE1NTl9.M09IUrRLXnHLTcIRpvy99I3Pu8Qxw2ZYK3sQlBAKB1Y"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/parking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"izjnklq\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/parking/4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"asfsdsffsasddfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parking/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/parking/89",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjgyYjI2NjktMTg1ZS00NjAyLWI0NDktZTk4MzNhMzA2NWNiIiwiaWF0IjoxNzA3MjgxNDE4LCJleHAiOjE3MDcyOTU4MTh9.FzD3y-WOOKomUSOhS_z33Zn-yfIu66-W42M7gYgUAHY",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/parking/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

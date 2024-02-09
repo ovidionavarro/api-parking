@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "08c6a844-b505-40c7-9757-3158232a34bd",
+		"name": "users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/user/253872ea-d21a-4fb8-ae2d-5749c72c9ff5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MjgxMzUzLCJleHAiOjE3MDcyOTU3NTN9.yKcJzjx9CKgUCuDgvY3HOKgBovl8HpIB9wKa8YDHii4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\":\"ovi1\",\r\n    \"email\": \"ovi2@exaample.com\",\r\n    \"password\": \"WERa\",\r\n    \"phone\": 1234567890,\r\n    \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/016b6480-24f0-494c-924d-d357f7b2a726",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"016b6480-24f0-494c-924d-d357f7b2a726"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MzE3MTU5LCJleHAiOjE3MDczMzE1NTl9.M09IUrRLXnHLTcIRpvy99I3Pu8Qxw2ZYK3sQlBAKB1Y",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":90\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/253872ea-d21a-4fb8-ae2d-5749c72c9ff5",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"pedrasdsfsdfsdfsfsdo\",\r\n    \"phone\": 4423922,\r\n    \"role\": \"CLIEsNT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/6b6480-24f0-494c-924d-d357f7b2a726",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"6b6480-24f0-494c-924d-d357f7b2a726"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ovidio3\",\r\n    \"email\":\"ovidio3@gmail.com\",\r\n    \"password\":\"ovidio3\",\r\n    \"phone\":44423213,\r\n    \"role\":\"EMPLOY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
