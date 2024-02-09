@@ -1,4 +1,4 @@
-
+const {v4: uuidv4}=require('uuid')
 const{DataTypes}= require('sequelize')
 const{db}=require('../db/mysql.js')
 
@@ -35,7 +35,24 @@ const User=db.define(
             defaultValue:true
         }
     },
-    {timestamps:false}
+    {
+        hooks:{
+            afterSync: async()=>{
+            const count=await User.count()
+            if(count===0){
+                console.log(count)
+                await User.create(
+                    {id:uuidv4(),
+                    name:"ovidio2",
+                    email:"ovidio2@gmail.com",
+                    password_hash:"$2a$10$DDnpivOVGNc8v0jSdPlHA.qjmofJFy2f/UrgukNGhoDsln2VNP2om",
+                    phone:"55555555",
+                    role:"ADMIN"
+                    ,status:true}) 
+                }
+            }
+        },
+        timestamps:false}
 )
 module.exports={
     User
