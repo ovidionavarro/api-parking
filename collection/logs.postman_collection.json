@@ -12,12 +12,12 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjgyYjI2NjktMTg1ZS00NjAyLWI0NDktZTk4MzNhMzA2NWNiIiwiaWF0IjoxNzA3NTEzMDE2LCJleHAiOjE3MDc1Mjc0MTZ9.SJGbkzSapf4b5yBZ8GWXMPwg6xtl52nUVjEII0PETSg",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/logs",
+					"raw": "http://localhost:8080/logs?x-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZjQ0MWJjYTItZjc3Yi00ODI3LWFiMjQtMTNmMWM0ZmViODA2IiwiaWF0IjoxNzA3NTE0NTAzLCJleHAiOjE3MDc1Mjg5MDN9.h17N8AusrwZcCILELXn6Nq9SZJjKRtNCou9D_MjrZuA",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -25,6 +25,12 @@
 					"port": "8080",
 					"path": [
 						"logs"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZjQ0MWJjYTItZjc3Yi00ODI3LWFiMjQtMTNmMWM0ZmViODA2IiwiaWF0IjoxNzA3NTE0NTAzLCJleHAiOjE3MDc1Mjg5MDN9.h17N8AusrwZcCILELXn6Nq9SZJjKRtNCou9D_MjrZuA"
+						}
 					]
 				}
 			},

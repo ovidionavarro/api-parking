@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MjgxMzUzLCJleHAiOjE3MDcyOTU3NTN9.yKcJzjx9CKgUCuDgvY3HOKgBovl8HpIB9wKa8YDHii4",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
 						"type": "default"
 					}
 				],
@@ -26,7 +26,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/user/016b6480-24f0-494c-924d-d357f7b2a726",
+					"raw": "http://localhost:8080/user/52a24949-a8e8-4a7d-b4f7-faaa71d18abc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -34,7 +34,7 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"016b6480-24f0-494c-924d-d357f7b2a726"
+						"52a24949-a8e8-4a7d-b4f7-faaa71d18abc"
 					]
 				}
 			},
@@ -50,7 +50,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgyMDg0MmMtMDRlOC00NDRkLTg0ODMtZjY2YTJmNjYyYzM2IiwiaWF0IjoxNzA3MzE3MTU5LCJleHAiOjE3MDczMzE1NTl9.M09IUrRLXnHLTcIRpvy99I3Pu8Qxw2ZYK3sQlBAKB1Y",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
 						"type": "default"
 					}
 				],
@@ -81,10 +81,16 @@
 			"name": "http://localhost:8080/user/253872ea-d21a-4fb8-ae2d-5749c72c9ff5",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"pedrasdsfsdfsdfsfsdo\",\r\n    \"phone\": 4423922,\r\n    \"role\": \"CLIEsNT\"\r\n}",
+					"raw": "{\r\n    \"name\": \"pedrasdsfsdfsdfsfsdo\",\r\n    \"phone\": 44203922,\r\n    \"role\": \"CLIENT\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +98,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/user/6b6480-24f0-494c-924d-d357f7b2a726",
+					"raw": "http://localhost:8080/user/736cf524-9892-4a21-8be1-9a001783df93",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,7 +106,7 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"6b6480-24f0-494c-924d-d357f7b2a726"
+						"736cf524-9892-4a21-8be1-9a001783df93"
 					]
 				}
 			},
@@ -110,10 +116,16 @@
 			"name": "http://localhost:8080/user",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"ovidio3\",\r\n    \"email\":\"ovidio3@gmail.com\",\r\n    \"password\":\"ovidio3\",\r\n    \"phone\":44423213,\r\n    \"role\":\"EMPLOY\"\r\n}",
+					"raw": "{\r\n    \"name\":\"ovidio1\",\r\n    \"email\":\"ovidio1@gmail.com\",\r\n    \"password\":\"ovidio1\",\r\n    \"phone\":44423213,\r\n    \"role\":\"CLIENT\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

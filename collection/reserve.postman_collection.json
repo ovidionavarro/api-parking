@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZjQ0MWJjYTItZjc3Yi00ODI3LWFiMjQtMTNmMWM0ZmViODA2IiwiaWF0IjoxNzA3MzE3MTI3LCJleHAiOjE3MDczMzE1Mjd9.3coIkeo-1nZoacv8jZjYxLIk5QY_MQNbUiDwJzqNyog",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
 						"type": "default"
 					}
 				],
@@ -34,10 +34,16 @@
 			"name": "http://localhost:8080/reserve",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_parking\": 3,\r\n    \"time_init\": \"2031-08-07T16:11:00.000Z\",\r\n    \"time_end\": \"2032-03-03T20:11:00.000Z\",\r\n    \"owner\":\"282b2669-185e-4602-b449-e9833a3065cb\"\r\n}\r\n\r\n",
+					"raw": "{\r\n    \"time_init\": \"2034-08-07T16:11:00.000Z\",\r\n    \"time_end\": \"2035-03-03T20:11:00.000Z\",\r\n    \"owner\":\"736cf524-9892-4a21-8be1-9a001783df93\",\r\n    \"registration_num\":\"asaf\"\r\n}\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,9 +74,15 @@
 			"name": "http://localhost:8080/reserve?id_parking=6&time_init=2024-08-07T16:11:00.000Z&time_end=2025-04-03T20:11:00.000Z",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/reserve?id_parking=1&time_init=2001-08-07T16:11:00.000Z&time_end=2002-04-03T16:11:00.000Z",
+					"raw": "http://localhost:8080/reserve?id_parking=1&time_init=2031-08-07T16:11:00.000Z&time_end=2032-03-03T20:11:00.000Z",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -86,11 +98,51 @@
 						},
 						{
 							"key": "time_init",
-							"value": "2001-08-07T16:11:00.000Z"
+							"value": "2031-08-07T16:11:00.000Z"
 						},
 						{
 							"key": "time_end",
-							"value": "2002-04-03T16:11:00.000Z"
+							"value": "2032-03-03T20:11:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reserve?registration_num=aero1236",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjE1MDI4NzItNDkxZS00YmM3LWJmMmYtZDg1NTg0Mzg5MjhjIiwiaWF0IjoxNzA3NjE2NjYyLCJleHAiOjE3MDc2MzEwNjJ9.woeGdDLHm62p54AyXPpHRvWvaLFdxpXMONX085UZ_dg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_parking\": 3,\r\n    \"time_init\": \"2034-08-07T16:11:00.000Z\",\r\n    \"time_end\": \"2035-03-03T20:11:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reserve?registration_num=aero1236",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reserve"
+					],
+					"query": [
+						{
+							"key": "registration_num",
+							"value": "aero1236"
 						}
 					]
 				}
